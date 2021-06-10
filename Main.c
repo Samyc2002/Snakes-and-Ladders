@@ -1,7 +1,6 @@
 #include<conio.h>
 #include<time.h>
 #include "Headers/position.h"
-#include "Headers/patwriting.h"
 
 struct players {
    char name[100];
@@ -101,10 +100,9 @@ void rulesOftheGame() {
 
 void welcome() {
 
-   printf("\t\t");
-   print("Snakes and Ladders", 2, '.');
+   system("cls");
 
-   printf("Welcome to the Snakes and Ladders game.\n\n");
+   printf("\t\t\t\t\t\t   WELCOME TO THE SNAKES AND LADDERS GAME\n\n");
 
    rulesOftheGame();
 
@@ -363,6 +361,14 @@ int main() {
             delay(2);
             system("cls");
             
+            printf("\t\t\t\t\t\t\tSCOREBOARD\n");
+            
+            for(int j=0; j<num; j++) {
+
+               (player[j].position == -1)?(printf("\t\t\t\t\t\t\t%s\t%d\n", player[j].name, player[j].position+1)):(printf("\t\t\t\t\t\t\t%s\t%d\n", player[j].name, player[j].position));
+            }
+            printf("\n");
+            
             continue;
          }
       }
@@ -417,10 +423,11 @@ int main() {
       delay(2);
       system("cls");
 
-      printf("Scoreboard:\n");
+      printf("\t\t\t\t\t\t\tSCOREBOARD\n");
+      
       for(int j=0; j<num; j++) {
 
-         (player[j].position == -1)?(printf("%d. %s at %d points\n", j+1, player[j].name, player[j].position+1)):(printf("%d. %s at %d points\n", j+1, player[j].name, player[j].position));
+         (player[j].position == -1)?(printf("\t\t\t\t\t\t\t%s\t%d\n", player[j].name, player[j].position+1)):(printf("\t\t\t\t\t\t\t%s\t%d\n", player[j].name, player[j].position));
       }
       printf("\n");
    }
