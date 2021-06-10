@@ -1,3 +1,4 @@
+![Logo](Logo.jpg "Snakes and Ladders")
 # Snakes-and-Ladder
 A CS course project at IIT Dharwad to make a simple snakes and ladder game.
 
