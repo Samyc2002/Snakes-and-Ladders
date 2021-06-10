@@ -32,6 +32,8 @@ int search_players(int n, players arr[], int len);
 
 void delay(int number_of_seconds);
 
+int max(int a, int b);
+
 void file_input() 
 {
    FILE* ladders;
@@ -144,12 +146,14 @@ void usual_process(int *i, int option) {
       
          // Player has fallen on the mouth of a long snake
          player[t].position -= long_snakes_length;
+         player[t].position = max(player[t].position, 1);
          printf("Alas! there was a snake and you were eaten by it.\nYour current position is %d. Let's hope for the best from now.\n", player[t].position);
       }
       else if(search(player[t].position, short_snakes_pos, short_snakes)) {
 
          // Player has fallen on the mouth of a short snake
          player[t].position -= short_snakes_length;
+         player[t].position = max(player[t].position, 1);
          printf("Alas! there was a snake and you were eaten by it. Thankfully, it was a small one. \nYour current position is %d. Let's hope for the best from now.\n", player[t].position);
       }
       else if(search(player[t].position, long_ladders_pos, long_ladders)) {
@@ -318,7 +322,7 @@ int main() {
             // Invalid input
             printf("Please enter a number between 1 to 6.\n");
 
-            delay(2);
+            delay(5);
             system("cls");
             
             continue;
@@ -337,7 +341,7 @@ int main() {
                i++;
             }
 
-            delay(2);
+            delay(5);
             system("cls");
             
             continue;
@@ -358,7 +362,7 @@ int main() {
                i++;
             }
 
-            delay(2);
+            delay(5);
             system("cls");
             
             printf("\t\t\t\t\t\t\tSCOREBOARD\n");
@@ -420,7 +424,7 @@ int main() {
          i++;
       }
 
-      delay(2);
+      delay(5);
       system("cls");
 
       printf("\t\t\t\t\t\t\tSCOREBOARD\n");
@@ -444,6 +448,8 @@ int main() {
 
    printf("Press any key to end the game.....");
    getch();
+   
+   system("cls");
 
    return 0;
 }
@@ -484,4 +490,13 @@ void delay(int number_of_seconds) {
   
    // looping till required time is not achieved
    while (clock() < start_time + milli_seconds);
+}
+
+int max(int a, int b) {
+
+   if(a>b) {
+
+      return a;
+   }
+   return b;
 }
